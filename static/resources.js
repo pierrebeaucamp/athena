@@ -1,3 +1,5 @@
+$.bigfoot();
+
 $(window).on("load",  function () {
   labels = document.querySelectorAll("label[for='sn-anything']");
   inputs = document.querySelectorAll("input[id='sn-anything']");
@@ -23,6 +25,14 @@ $(window).on('resize', function() {
 
 $(window).on("load",  function () {
   $(".thearticle > article > p:nth-of-type(2)").html(function (i, html) {
-    return html.replace(/(\w+\S+\s)/, '<span class="newthought">$1</span>')
+    return html.replace(/(([α-ωA-Ω]|[a-zA-Z])+\S+\s)/,
+      '<span class="newthought">$1</span>')
+  });
+});
+
+$(window).on("load", function () {
+  $("p.caption").each(function (i, html) {
+    $(this).insertBefore($(this).prev().parent());
+    $(this).replaceWith("<figcaption>"+$(this).text()+"</figcaption>");
   });
 });

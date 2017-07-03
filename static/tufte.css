@@ -32,7 +32,7 @@ body { width: 87.5%;
        counter-reset: sidenote-counter; }
 
 h1 { font-weight: 400;
-     margin-top: 4rem;
+     margin-top: 2.5rem;
      margin-bottom: 1.5rem;
      font-size: 3.2rem;
      line-height: 1; }
@@ -196,6 +196,12 @@ ul { list-style-type: none; }
 
 li { padding: 0.5rem 0; }
 
+img.mached {
+  width: 41px;
+  height: 54px;
+  padding-right: 1em;
+}
+
 figure { -webkit-margin-start: 0;
          -webkit-margin-end: 0; }
 
@@ -272,11 +278,19 @@ img { max-width: 100%; margin-left: auto; margin-right: auto; display: block; }
                    -ms-transform: translateX(-100%) translateX(-0.25rem);
                    transform: translateX(-100%) translateX(-0.25rem); }
 
-p, footer, pre.code, table.table-wrapper { width: 55%; }
+p, footer, pre, div.sourceCode, table.table-wrapper, table, ol, ul,
+div.figure, div footnotes {width: 55%; }
 
-@media screen and (max-width: 760px) { p, footer, pre.code { width: 90%; }
+div.sourceCode pre {width: auto;}
+
+.footnotes p {width: 100%;}
+
+@media screen and (max-width: 760px) { p, footer, pre, pre.code, table,
+                                        div.sourceCode, ol, ul,
+                                      div.figure, .footnotes p { width:
+                                       90%; }
                                        blockquote p, blockquote footer { width: 90%; }
-                                       table.table-wrapper { width: 90%; } }
+                                       table.table-wrapper { width: 90%; }}
 
 .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 
@@ -306,6 +320,21 @@ pre.code { padding: 0 0 0 2em;
 span.newthought { font-variant: small-caps;
                   font-size: 1.4em; }
 
+span.boldnewthought {
+  font-variant: small-caps;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+img.hed {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  /*margin-bottom: -10px;*/
+  padding-top: 8px;
+  max-width: 80px;
+}
+
 input.margin-toggle { display: none; }
 
 label.sidenote-number { display: inline; }
@@ -315,6 +344,7 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
 @media(max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; }
                            .sidenote { display: none; }
                            .marginnote { float: none; }
+                           img.mached { width: 41px; height: 54px;}
                            #blogdesc { width: 90%; display: block;}
                            .thefooter { width: 90% !important; }
                            .margin-toggle:checked + .sidenote, 
@@ -349,12 +379,15 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
   margin-top: 4rem;
   /*border-bottom: solid 1px #ddd;*/
   width: 50%;
+  margin-bottom: 3rem;
 }
 
 @media screen and (max-width: 760px) {
   .header {
     width: 90%;
   }
+
+  img.mached { width: 41px; height: 54px; }
 
   .content h1 {
     width: 85% !important;
@@ -411,6 +444,10 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
   margin-top: 30px;
   width: 60%;
   border-top: solid 1px #ddd;
+  color: #777;
+}
+
+.thefooter a {
   color: #777;
 }
 
