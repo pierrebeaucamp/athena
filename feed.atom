@@ -170,7 +170,7 @@ var &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;va&quot
 Figure 1: A note about the image.
 &lt;/figcaption&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;/static/img/figure1.png&quot; title=&quot;An image.&quot; alt=&quot;An image.&quot; /&gt;
+&lt;img src=&quot;/athena/static/img/figure1.png&quot; title=&quot;An image.&quot; alt=&quot;An image.&quot; /&gt;
 &lt;p class=&quot;caption&quot;&gt;An image.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.&lt;/p&gt;
@@ -254,8 +254,8 @@ Figure 1: A note about the image.
 &lt;p&gt;Sometimes what the hackers do is called “software engineering,” but this term is just as misleading. Good software designers are no more engineers than architects are. The border between architecture and engineering is not sharply defined, but it’s there. It falls between what and how: architects decide what to do, and engineers figure out how to do it.&lt;/p&gt;
 &lt;p&gt;What and how should not be kept too separate. You’re asking for trouble if you try to decide what to do without understanding how to do it. But hacking can certainly be more than just deciding how to implement some spec. At its best, it’s creating the spec– though it turns out the best way to do that is to implement it.&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;/static/img/bruegel.jpg&quot; alt=&quot;Hackers and painters; by Pieter Bruegel.&quot; /&gt;
-&lt;p class=&quot;caption&quot;&gt;Hackers and painters; by Pieter Bruegel.&lt;/p&gt;
+&lt;img src=&quot;/athena/static/img/bruegel.jpg&quot; alt=&quot;Hackers and painters; Pieter Bruegel.&quot; /&gt;
+&lt;p class=&quot;caption&quot;&gt;Hackers and painters; Pieter Bruegel.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Perhaps one day “computer science” will, like Yugoslavia, get broken up into its component parts. That might be a good thing. Especially if it meant independence for my native land, hacking.&lt;/p&gt;
 &lt;p&gt;Bundling all these different types of work together in one department may be convenient administratively, but it’s confusing intellectually. That’s the other reason I don’t like the name “computer science.” Arguably the people in the middle are doing something like an experimental science. But the people at either end, the hackers and the mathematicians, are not actually doing science. See tbl. 1.&lt;/p&gt;
