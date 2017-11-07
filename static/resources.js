@@ -1,5 +1,3 @@
-$.bigfoot();
-
 $(window).on("load",  function () {
   labels = document.querySelectorAll("label[for='sn-anything']");
   inputs = document.querySelectorAll("input[id='sn-anything']");
@@ -12,7 +10,7 @@ $(window).on("load",  function () {
   }; 
 });
 
-$(window).on('resize', function() {
+$(window).on("resize", function() {
   enquire.register("screen and (max-width: 760px)", {
     match : function() {
       $('#blogdesc').insertBefore('.thefooter');
@@ -36,3 +34,5 @@ $(window).on("load", function () {
     $(this).replaceWith("<figcaption>"+$(this).text()+"</figcaption>");
   });
 });
+
+$.bigfoot();
