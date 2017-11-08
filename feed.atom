@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Athena</title>
-  <id>http://localhost/</id>
+  <id>http://apas.github.io/athena/</id>
   <updated>2017-07-04T00:00:00Z</updated>
-  <link href="http://localhost/" />
-  <link href="http://localhost/" rel="self" />
+  <link href="http://apas.github.io/athena/" />
+  <link href="http://apas.github.io/athena/" rel="self" />
   <subtitle type="text">Athena Atom Feed</subtitle>
   <generator>Werkzeug</generator>
-  <entry xml:base="http://localhost/">
+  <entry xml:base="http://apas.github.io/athena/">
     <title type="text">Speeches</title>
-    <id>http://localhost/posts/speeches</id>
+    <id>http://apas.github.io/posts/speeches</id>
     <updated>2016-06-05T00:00:00Z</updated>
     <published>2016-06-05T00:00:00Z</published>
-    <link href="http://localhost/posts/speeches" />
+    <link href="http://apas.github.io/posts/speeches" />
     <author>
-      <name>Apostolos Papadopoulos</name>
+      <name>Your Name</name>
     </author>
     <content type="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
@@ -43,14 +43,14 @@
 &lt;/html&gt;
 </content>
   </entry>
-  <entry xml:base="http://localhost/">
+  <entry xml:base="http://apas.github.io/athena/">
     <title type="text">My early life</title>
-    <id>http://localhost/posts/winston</id>
+    <id>http://apas.github.io/posts/winston</id>
     <updated>2017-07-04T00:00:00Z</updated>
     <published>2017-07-04T00:00:00Z</published>
-    <link href="http://localhost/posts/winston" />
+    <link href="http://apas.github.io/posts/winston" />
     <author>
-      <name>Apostolos Papadopoulos</name>
+      <name>Your Name</name>
     </author>
     <content type="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
@@ -72,14 +72,14 @@
 &lt;/html&gt;
 </content>
   </entry>
-  <entry xml:base="http://localhost/">
+  <entry xml:base="http://apas.github.io/athena/">
     <title type="text">Elements</title>
-    <id>http://localhost/posts/elements</id>
+    <id>http://apas.github.io/posts/elements</id>
     <updated>2016-03-12T00:00:00Z</updated>
     <published>2016-03-12T00:00:00Z</published>
-    <link href="http://localhost/posts/elements" />
+    <link href="http://apas.github.io/posts/elements" />
     <author>
-      <name>Apostolos Papadopoulos</name>
+      <name>Your Name</name>
     </author>
     <content type="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
@@ -217,14 +217,14 @@ var &lt;span class=&quot;op&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;va&quot
 &lt;/html&gt;
 </content>
   </entry>
-  <entry xml:base="http://localhost/">
+  <entry xml:base="http://apas.github.io/athena/">
     <title type="text">Hackers are painters</title>
-    <id>http://localhost/posts/hackers</id>
+    <id>http://apas.github.io/posts/hackers</id>
     <updated>2017-07-03T00:00:00Z</updated>
     <published>2017-07-03T00:00:00Z</published>
-    <link href="http://localhost/posts/hackers" />
+    <link href="http://apas.github.io/posts/hackers" />
     <author>
-      <name>Apostolos Papadopoulos</name>
+      <name>Your Name</name>
     </author>
     <content type="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
