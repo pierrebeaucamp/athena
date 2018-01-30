@@ -44,7 +44,7 @@ for dependency in dependencies:
 
 print(print_color("==> Creating the virtual environment. . .", 4))
 try:
-  proc.check_call(["virtualenv", "--python=/usr/bin/python2.7", "env"])
+  proc.check_call(["virtualenv", "env"])
 except Exception, e:
   raise e
 

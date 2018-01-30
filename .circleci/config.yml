@@ -2,13 +2,20 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: nixos/nix:1.11
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Setup Container
+          command: .circleci/setup.sh
+      - restore_cache:
+          keys:
+            - nix-{{ checksum "requirements.nix" }}
       - run:
-          name: Print the Current Time
-          command: date
-
+          name: Build
+          command: nix-build
+      - save_cache:
+          key: nix-{{ checksum "requirements.nix" }}
+          when: always
+          paths:
+            - /nix
