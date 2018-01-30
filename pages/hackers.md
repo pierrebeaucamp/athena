@@ -86,5 +86,3 @@ Harvard, which incorporated an earlier talk at Northeastern.
 
 [^mn]:
     {-} This is a margin note. Notice there isn't a number preceding the note.
-
-# References

@@ -26,7 +26,13 @@
     <div class="navigation">
       <ul class="navigation-list">
         <li class="active"><a href="{{ url_for("index") }}">home</a> ·</li>
-        <li><a href="{{ url_for("about") }}">about</a> ·</li>
+        {% for page in hpages %}
+            <li>
+              <a href="{{ url_for("hardpagelink", path=page.path)}}">
+                {{ page.title.lower() }}
+              </a> ·
+            </li>
+         {% endfor %}
         <li><a href="{{ url_for("recent_feed") }}">subscribe</a></li>
       </ul>
     </div> <!-- navigation end -->

@@ -66,8 +66,15 @@ For deploying athena to a remove server read the relevant section below.
 
 ### Post structure
 
-athena reads Markdown files from the `pages/` directory and builds static HTML
-files. Posts must start with the following YAML structure:
+athena supports two types of Markdown-to-HTML content: posts and pages.
+`posts` are normal blog posts and `pages` are auxiliary to the blog pages such
+as _About_ or _Contact_. Both are read from the `pages/` directory and are
+subsequently built to static HTML files. The difference between a post and a
+page is one YAML key.
+
+**Posts**
+
+Posts must start with the following YAML structure:
 
     ---
     title: Title of the post
@@ -75,9 +82,31 @@ files. Posts must start with the following YAML structure:
     description: A short description of the post.
     ...
 
-Title and date values are extracted for the index loop and the post's
-permalink. Both the author and description values are used in the post's HTML
-meta tags and are optional. The name of the Markdown file can by anything.
+Posts are accessible in the following endpoint: `/posts/<name-of-post>`
+
+**Pages**
+
+Pages must start with the following YAML structure:
+
+    ---
+    title: Title of the page
+    date: 2017-11-14
+    description: A sample about page.
+    ispage: yes
+    ...
+
+Pages are accessible in the following endpoint: `/<name-of-page>`
+
+For both posts and pages: title and date values are extracted for the index
+loop and the post's permalink; the `ispage` value is filtered in the backend
+in order to produce a list of posts and a list of pages for the nav and side
+bars, as well as the Atom feed. Both author and description values are
+used in the post's HTML meta tags and are optional. The name of the Markdown
+file for either a post or a page can by anything and is its URL path.
+
+For instance: \
+`about.md` with `ispage: yes` will be available at `/about` \
+`random.md` without `ispage` at all will be available at `/posts/random`
 
 ### Tufte CSS-specific elements
 
@@ -145,8 +174,8 @@ reference your citation as you normally would:
     what they're doing computer science so they can get
     DARPA grants. [@clark1988design]
 
-It is recommended to end your Markdown files which reference a `.bib` citation
-with a `# References` element in order to properly highlight them.
+For posts with citations, athena automatically appends the relevant
+bibliography at the end of the post under a References header element.
 
 **Math**
 

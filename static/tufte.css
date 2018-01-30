@@ -202,8 +202,15 @@ img.mached {
   padding-right: 1em;
 }
 
-figure { -webkit-margin-start: 0;
-         -webkit-margin-end: 0; }
+figure { padding: 0;
+         border: 0;
+         font-size: 100%;
+         font: inherit;
+         vertical-align: baseline;
+         max-width: 55%;
+         -webkit-margin-start: 0;
+         -webkit-margin-end: 0;
+         margin: 0 0 3em 0; }
 
 figcaption { float: right;
              clear: right;
@@ -290,7 +297,8 @@ div.sourceCode pre {width: auto;}
                                       div.figure, .footnotes p { width:
                                        90%; }
                                        blockquote p, blockquote footer { width: 90%; }
-                                       table.table-wrapper { width: 90%; }}
+                                       table.table-wrapper { width: 90%; }
+                                       figure { max-width: 90%; }}
 
 .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 
@@ -342,7 +350,8 @@ label.sidenote-number { display: inline; }
 label.margin-toggle:not(.sidenote-number) { display: none; }
 
 @media(max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; }
-                           .sidenote { display: none; }
+                           figure .marginnote, .figure .marginnote { display: inline; }
+                           .sidenote, .marginnote { display: none; }
                            .marginnote { float: none; }
                            img.mached { width: 41px; height: 54px;}
                            #blogdesc { width: 90%; display: block;}
@@ -369,7 +378,8 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
                                             vertical-align: baseline;
                                             position: relative; }
                            table, table.booktabs { width: 85%; }
-                           img { width: 100%; } }
+                           img { width: 100%; }
+                           p { overflow: hidden; }}
 
 /* amendments */
 

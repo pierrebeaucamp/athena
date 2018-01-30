@@ -36,7 +36,10 @@
     <p id="blog-p"><span id="blogdesc" class="marginnote">
     {{ config.sidebardesc }}<br><br>
     <a href="{{ url_for("index") }}">home</a> ·
-    <a href="{{ url_for("about") }}">about</a> ·
+    {% for page in hpages %}
+      <a href="{{ url_for("hardpagelink", path=page.path)}}">
+        {{ page.title.lower() }}</a> ·
+    {% endfor %}
     <a href="{{ url_for("recent_feed") }}">subscribe</a></span></p>
 
     <subtitle class="sub-date">{{ page.date.strftime('%B %d, %Y') }} · <span style="font-size: 1.6rem;"><a style="border-bottom-width: 0px !important;" href="{{ request.path }}">&infin;</a></span></subtitle>

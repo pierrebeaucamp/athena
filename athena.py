@@ -7,6 +7,10 @@ from flask_frozen import Freezer
 from werkzeug.contrib.atom import AtomFeed
 from flatpandoc import FlatPagesPandoc
 import subprocess as proc
+import operator
+import fileinput
+import glob
+import os
 try:
   import config
 except ImportError, e:
@@ -38,32 +42,53 @@ def recent_feed():
     )
 
   for page in pages:
-    feed.add(page["title"],
-      unicode(page.__html__()),
-        content_type = 'html',
-        url = make_external("/posts/"+page.path),
-        author = config.config["author"],
-        updated = datetime.combine(page["date"], datetime.min.time()),
-        published = datetime.combine(page["date"], datetime.min.time())
-      )
+    if not page.meta.get("ispage"):
+      feed.add(page["title"],
+        unicode(page.__html__()),
+          content_type = 'html',
+          url = make_external("/posts/"+page.path),
+          author = config.config["author"],
+          updated = datetime.combine(page["date"], datetime.min.time()),
+          published = datetime.combine(page["date"], datetime.min.time())
+        )
 
   return feed.get_response()
 
 @athena.route("/")
 def index():
-  return render_template("index.html", pages=pages, config=config.config)
+  posts = filter(lambda page: "ispage" not in page.meta, pages)
+  hpages = filter(lambda page: "ispage" in page.meta, pages)
+  return render_template("index.html", pages=posts,
+                          hpages=hpages, config=config.config)
 
-@athena.route("/about/")
-def about():
-  return render_template("about.html", config=config.config)
+@athena.route("/<path:path>/")
+def hardpagelink(path):
+    hpage = ""
+    for page in pages:
+        if page.path == path:
+            if page.meta["ispage"]:
+                hpage = page
+    hpages = filter(lambda page: "ispage" in page.meta, pages)
+    return render_template("hard.html", page=hpage,
+                            hpages=hpages, config=config.config)
 
 @athena.route("/posts/<path:path>/")
 def page(path):
   page = pages.get_or_404(path)
-  return render_template("page.html", page=page, config=config.config)
+  hpages = filter(lambda page: "ispage" in page.meta, pages)
+  return render_template("page.html", page=page,
+                          hpages=hpages, config=config.config)
+
+def cat():
+  allp = os.path.join(os.getcwd(), "pages", "all.bib")
+  bibs = os.path.join(os.getcwd(), "pages", "*.bib")
+  with open(allp, "w") as f:
+    for line in fileinput.input(glob.glob(bibs)):
+      f.write(line)
+    fileinput.close()
 
 if __name__ == "__main__":
-  proc.call("./managebib")
+  cat()
   if len(sys.argv) > 1 and sys.argv[1] == "build":
     freezer.freeze()
   else:

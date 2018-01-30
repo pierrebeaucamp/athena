@@ -9,8 +9,11 @@ pandoc as backend.
 :license: MIT, see LICENSE.txt for more details.
 
 With some changes by @apas:
+
   - Invoke pandoc via pypandoc instead subprocess
-  - Identation changes
+  - Indentation changes
+  - Support of Pandoc 2.0 by @ThoseGrapefruits
+
 License: MIT
 """
 from __future__ import print_function
@@ -83,19 +86,28 @@ class FlatPagesPandoc(object):
       "--filter=pandoc-crossref",
       "--filter=pandoc-citeproc",
       "--filter=pandoc-sidenote",
-      "--standalone", "-S",
+      "--standalone",
       "--mathml",
       "--base-header-level=2",
       "--highlight-style", "pygments",
       '--bibliography="pages/all.bib"',
       "--csl=pages/lncs.csl",
-      "--metadata", "link-citations=true"
+      "-Mreference-section-title=References",
+      "-Mlink-citations=true"
     ]
+
+    pandocver = int(pypandoc.get_pandoc_version()[0])
+
+    if pandocver < 2:
+      extra_args.append("-S")
+      format_str = "markdown+raw_tex+yaml_metadata_block"
+    else:
+      format_str = "markdown+raw_tex+smart+yaml_metadata_block"
 
     output = pypandoc.convert_text(
       text.encode("utf8"),
       'html',
-      format="markdown+raw_tex+yaml_metadata_block",
+      format = format_str,
       extra_args=extra_args
     )
 
