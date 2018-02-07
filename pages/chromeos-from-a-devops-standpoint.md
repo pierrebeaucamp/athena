@@ -11,7 +11,7 @@ I didn't plan on using my Chromebook for any actual work when I bought it in 201
 
 Chromebooks are cheap (except for the Pixel), run fast and have a great battery. In fact, their battery will last through the whole day (that's 12 hours, not 8 like Apple or MS will tell you). They run on Linux, more specifically a modified version of Gentoo, with a custom boot process and a custom window manager (No X11).
 
-So, for 200$, I got a modern and fast Linux laptop with good build quality and *no driver issues*! This alone convinced me to give it a try.
+So, for 200 Dollar, I got a modern and fast Linux laptop with good build quality and *no driver issues*! This alone convinced me to give it a try.
 
 ## Developer mode
 ChromeOS comes pretty locked down by default, which is a **good** thing. In my opinion, no regular user should have root privileges, ever (see Android as a good example). To unlock more advanced features, you need to set the OS in *developer mode*. Once in developer mode, the computer will display a warning on every boot and offer you to restore the OS. This annoys a lot of people, but again, it's a **good** thing. Developers are a minority and this feature adds security for everyone.

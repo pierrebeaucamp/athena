@@ -12,15 +12,15 @@ I decided to fill this gap with the following tutorial. It is an adaptation of t
 
 ## Prerequisites
 For this project, we'll use both PureScript and [Pulp](https://github.com/bodil/pulp), a build system for PureScript. If you haven't installed them yet, you can get them through Node:
-```markdown
-$ npm install -g purescript pulp
+```bash
+npm install -g purescript pulp
 ```
 
 To create a new Pulp Project, we'll create a new folder and run `pulp init` in it:
-```markdown
-$ mkdir purescript-tutorial
-$ cd purescript-tutorial
-$ pulp init
+```bash
+mkdir purescript-tutorial
+cd purescript-tutorial
+pulp init
 ```
 
 The project structure is pretty much self-explanatory: There is a `src` folder for source files, a `test` folder for unit tests and `bower.json`.
@@ -29,17 +29,15 @@ As we're creating a web app, we'll also need an HTML file. I've put some [skelet
 
 ## Examine the skeleton app
 With the project initialized and the skeleton files in place, it's time for the first compilation of our app. To compile our code, run:
-```markdown
-$ pulp build -O --to main.js
-```
-> - The `-O` flag strips all the unused code away, so the resulting Javascript code is as small as possible.
-> - The `--to` flag defines the output file.
 
-<br/>
+[^description-1]
+```bash
+pulp build -O --to main.js
+```
 
 Now, open `index.html` in your favorite web browser. You should be greeted by the following pirate badge:
 
-![skeleton pirate badge](/images/badge1.png)
+![skeleton pirate badge]({{url_for('static', filename='img/badge1.png')}})
 
 And if you open the Javascript console, you should see a friendly "*Hello Sailor!*".
 
@@ -132,5 +130,9 @@ main = do
 ```
 This will execute `action1`, then `action2` and finally `action3`. Personally, it was pretty interesting to read about the reasoning behind `do`, but, for now, it's ok just to remember that we need to write `do` if our function has more than one instruction.
 
-Now that we are up and running, head over to [part 2](/post/Getting%20started%20in%20PureScript%20%28Part%202%29/) to start coding!
+Now that we are up and running, head over to [part 2](/posts/getting-started-in-purescript-part-2/) to start coding!
+
+[^description-1]: {-}
+The `-O` flag strips all the unused code away, so the resulting Javascript code is as small as possible. <br> The `--to` flag defines the output file.
+
 

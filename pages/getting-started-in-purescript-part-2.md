@@ -327,7 +327,7 @@ That's it for now. Take a break, drink a coffee and head over to [part 3](/posts
 The event type we want to listen to is `input`. <br> `updateBadge` is our event callback - we've yet to implement it. <br> `element` is the element we want to attach the event listener to.
 
 [^description-2]: {-}
-`#inputName` is the id of our input field. We've declared it in our HTML document itself. <br> document is the parent HTML element we want to run the function on.
+`#inputName` is the id of our input field. We've declared it in our HTML document itself. <br> `document` is the parent HTML element we want to run the function on.
 
 [^description-3]: {-}
 `input` is a string with the text of our input field <br> `badge` is an HTML element referencing our badge.

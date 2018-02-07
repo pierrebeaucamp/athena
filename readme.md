@@ -3,8 +3,6 @@
 **athena** is an elegant, minimalist, light-weight static blog generator
 written in Python. It is based on Flask, Pandoc, and Tufte CSS.
 
-![athena screenshot](/static/athena.png)
-
 You can browse the [live demo here][demo].
 
 ## Why athena?
@@ -145,7 +143,7 @@ A relevant directory to host and serve from all your image assets is
 
 You can write inline code by enclosing text in single backticks.
 Alternatively, for blocks use three backticks. athena supports code
-highlighting via Pygmentize. 
+highlighting via Pygmentize.
 
     ``` {.python}
     # a code block with syntax highlighting

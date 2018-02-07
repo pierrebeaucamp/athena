@@ -3,3 +3,4 @@ result
 *.log
 pages/all.bib
 .DS_Store
+node_modules

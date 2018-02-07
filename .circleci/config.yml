@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Setup Container
+          name: Setup
           command: .circleci/setup.sh
       - restore_cache:
           keys:
@@ -14,6 +14,9 @@ jobs:
       - run:
           name: Build
           command: nix-build
+      - run:
+          name: Deploy
+          command: nix-shell -p node --run ".circleci/deploy.sh"
       - save_cache:
           key: nix-{{ checksum "requirements.nix" }}
           when: always
