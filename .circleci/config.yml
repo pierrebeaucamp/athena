@@ -16,7 +16,7 @@ jobs:
           command: nix-build
       - run:
           name: Deploy
-          command: nix-shell -p node --run ".circleci/deploy.sh"
+          command: nix-shell -p nodejs --run ".circleci/deploy.sh"
       - save_cache:
           key: nix-{{ checksum "requirements.nix" }}
           when: always
