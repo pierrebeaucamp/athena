@@ -49,11 +49,11 @@ Sadly, the `purescript-simple-dom` module doesn't come with lots of documentatio
 
 Alright, let's put it all together. Adjust your `main` function to look like this:
 
-[^description-1]
 ```haskell
 main = do
     unsafeAddEventListener "input" updateBadge element
 ```
+[^description-1]
 
 Let's continue by looking for a way to select the right HTML element and reference it in `element`. In `Data.DOM.Simple.Unsafe.Element`, we find a `unsafeQuerySelector` module which sounds about right. Again, we look at the type declaration to see what we need to pass:
 ```haskell
@@ -63,12 +63,12 @@ In this case, it needs a string for the query itself and any object to run the f
 
 As the `element` variable needs to be declared before we can use it in `unsafeAddEventListener`, we declare it on the line above:
 
-[^description-2]
 ```haskell
 main = do
     element <- unsafeQuerySelector "#inputName" document
     unsafeAddEventListener "input" updateBadge element
 ```
+[^description-2]
 
 There is a new operator (`<-`) that we haven't seen yet. This is a *bind* operator - it binds the result of the function on its right side to the variable on the left side. The equal sign (`=`) works more like an alias in PureScript. But in this case, we want to work with the output of `unsafeQuerySelector` itself, so we chose `<-`.
 
@@ -98,11 +98,11 @@ unsafeSetTextContent :: forall eff a. String -> a -> Eff (dom :: DOM | eff) Unit
 ```
 Sounds great, let's use it:
 
-[^description-3]
 ```haskell
 updateBadge event = do
     unsafeSetTextContent input badge
 ```
+[^description-3]
 
 Note that `updateBadge` takes a paramter called `event`. But how exactly did I know that the callback function will receive a paramter? Let's take a look at the type declaration of `unsafeAddEventListener` again:
 

@@ -30,10 +30,10 @@ As we're creating a web app, we'll also need an HTML file. I've put some [skelet
 ## Examine the skeleton app
 With the project initialized and the skeleton files in place, it's time for the first compilation of our app. To compile our code, run:
 
-[^description-1]
 ```bash
 pulp build -O --to main.js
 ```
+[^description-1]
 
 Now, open `index.html` in your favorite web browser. You should be greeted by the following pirate badge:
 
