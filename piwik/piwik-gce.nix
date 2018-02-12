@@ -12,7 +12,7 @@
 
   piwik = { resources, pkgs, ...}: {
     networking = {
-      hostName = "piwik.pierebeaucamp.com";
+      hostName = "pierrebeaucamp.com";
       firewall.allowedTCPPorts = [ 80 443 ];
     };
 
