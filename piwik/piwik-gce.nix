@@ -29,7 +29,7 @@
     services = {
       nginx.enable = true;
 
-      piwik = {
+      matomo = {
         enable = true;
         nginx.default = true;
       };
@@ -37,11 +37,19 @@
       mysql = {
         enable = true;
         package = pkgs.mariadb;
-        initialScript = pkgs.writeText "piwikInit.sql" ''
-          INSTALL PLUGIN unix_socket SONAME 'auth_socket';
-          CREATE DATABASE piwik;
-          CREATE USER 'piwik'@'localhost' IDENTIFIED WITH unix_socket;
-          GRANT ALL PRIVILEGES ON piwik.* TO 'piwik'@'localhost';
+
+        ensureDatabases = [ "piwik" ];
+        ensureUsers = [
+          {
+            name = "matomo";
+            ensurePermissions = {
+              "piwik.*" = "ALL PRIVILEGES";
+            };
+          }
+        ];
+
+        extraOptions = ''
+          max_allowed_packet = 128M
         '';
       };
     };
