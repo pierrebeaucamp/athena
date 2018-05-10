@@ -155,6 +155,7 @@ What follows is the complete code, including a `Main` function which applies our
 `toFizzbuzz` function to a list of 1 to 100 and prints out the result.
 
 ```fs
+type fizz     = | Fizz     : fizz
 type buzz     = | Buzz     : buzz
 type fizzbuzz = | FizzBuzz : fizzbuzz
 
@@ -173,19 +174,6 @@ let toFizzbuzz n =
   else n
 
 let _ = assert (forall n. n%3>0 && n%5>0 ==> toFizzbuzz n = n)
-
-type printable =
-  | PrintInt      of int
-  | PrintFizz     of fizz
-  | PrintBuzz     of buzz
-  | PrintFizzBuzz of fizzbuzz
-
-val showFizzbuzz: printable -> string
-let showFizzbuzz x = match x with
-  | PrintFizz     _ -> "Fizz"
-  | PrintBuzz     _ -> "Buzz"
-  | PrintFizzBuzz _ -> "FizzBuzz"
-  | PrintInt      i -> string_of_int i
 ```
 
 As a final note: The resulting program still relies on a lot of unknowns. We
