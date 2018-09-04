@@ -7,7 +7,7 @@
       firewall.allow-http.allowed.tcp = [ 80 443 ];
     };
 
-    gceStaticIPs.public-ip.region = "us-east4";
+    gceStaticIPs.public-ip.region = "us-east1";
   };
 
   piwik = { resources, pkgs, ...}: {
@@ -19,8 +19,9 @@
     deployment = {
       targetEnv = "gce";
       gce = {
-        region = "us-east4-b";
+        region = "us-east1-b";
         instanceType = "f1-micro";
+        rootDiskSize = 30;
         network = resources.gceNetworks.piwik-net;
         ipAddress = resources.gceStaticIPs.public-ip;
       };
