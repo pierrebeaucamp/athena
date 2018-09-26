@@ -17,7 +17,8 @@ First, we add the button itself to our html document:
 </div>
 ```
 
-Now we want to add an event listener to our new button, similar to the event listener we added to the input element in part 1.
+Now we want to add an event listener to our new button, similar to the event
+listener we added to the input element in part 1.
 
 ```haskell
 main = do
@@ -27,7 +28,8 @@ main = do
     unsafeAddEventListener "click" generateBadge button
 ```
 
-As you can see, we will call the `generateBadge` function in case of a click event. let's implement this function next:
+As you can see, we will call the `generateBadge` function in case of a click
+event. let's implement this function next:
 
 ```haskell
 {-|
@@ -40,13 +42,16 @@ generateBadge event = do
     unsafeSetTextContent "Anne Bonney" badge
 ```
 
-Our `generateBadge` function does only have a single purpose so far: Set the name on the badge to "Anne Bonney".
+Our `generateBadge` function does only have a single purpose so far: Set the
+name on the badge to "Anne Bonney".
 
-Compile the code and open `index.html` in your browser. If you click the button, the badge should display "Anne Bonney" in it.
+Compile the code and open `index.html` in your browser. If you click the button,
+the badge should display "Anne Bonney" in it.
 
 Neat! But we can do better.
 
 First of, there are a lot of lines reading
+
 ```haskell
 unsafeDocument globalWindow >>= unsafeQuerySelector "#elementid"
 ```
@@ -63,7 +68,8 @@ querySelector query = unsafeDocument globalWindow >>= unsafeQuerySelector query
 
 Now we can replace each occurrence simply with `querySelector "#elementid"`.
 
-Next, let's apply our knowledge from part 1 and clean up our remaining functions using the `>>=` monad. At this point, our code looks like this:
+Next, let's apply our knowledge from part 1 and clean up our remaining functions
+using the `>>=` monad. At this point, our code looks like this:
 
 ```haskell
 module Main where
@@ -111,9 +117,15 @@ updateBadge event = do
     querySelector "#badgeName" >>= unsafeSetTextContent input
 ```
 
-For the last feature, we'll disable the button if there is already a name on the badge. This is a good UX practise: After pressing the button for the first time, it doesn't provide any functionality anymore.
+For the last feature, we'll disable the button if there is already a name on the
+badge. This is a good UX practise: After pressing the button for the first time,
+it doesn't provide any functionality anymore.
 
-First, we'll add a new function to our program: `setBadgeName`. This function will, as you might have guessed, set the name of the badge. Afterwards, `updateBadge` and `generateBadge` will be updated to call `setBadgeName` instead of setting the name themselves. In the end, we will decide if we need to disable our button or not.
+First, we'll add a new function to our program: `setBadgeName`. This function
+will, as you might have guessed, set the name of the badge. Afterwards,
+`updateBadge` and `generateBadge` will be updated to call `setBadgeName` instead
+of setting the name themselves. In the end, we will decide if we need to disable
+our button or not.
 
 let's dive in:
 
@@ -130,7 +142,10 @@ setBadgeName name = do
     unsafeTextContent badge >>= disableIfEmpty button
 ```
 
-This should be fairly easy to follow. `disableIfEmpty` is yet another function we have to implement later. Technically, we could have included everything from `disableIfEmpty` in `setBadgeName` itself, but I  like to keep my functions as small as possible.
+This should be fairly easy to follow. `disableIfEmpty` is yet another function
+we have to implement later. Technically, we could have included everything from
+`disableIfEmpty` in `setBadgeName` itself, but I  like to keep my functions as
+small as possible.
 
 Now let's modify `updateBadge` and `generateBadge` to call `setBadgeName`:
 
@@ -158,9 +173,11 @@ disableIfEmpty button content = if eq content "" then do
         unsafeSetAttribute "disabled" "true" button
 ```
 
-There are a couple of new things here: First, we have `unsafeSetAttribute` and `unsafeRemoveAttribute`. They are provided by `purescript-simple-dom` again.
+There are a couple of new things here: First, we have `unsafeSetAttribute` and
+`unsafeRemoveAttribute`. They are provided by `purescript-simple-dom` again.
 
-The other new thing here is the `if ... then ... else` expression. In its pure form, it looks like this:
+The other new thing here is the `if ... then ... else` expression. In its pure
+form, it looks like this:
 
 ```haskell
 if condition
@@ -168,7 +185,8 @@ if condition
 	else operation_b
 ```
 
-The indentation is important: if you forget it, the compiler will throw errors. Otherwise, the notation works just as you know it from other languages.
+The indentation is important: if you forget it, the compiler will throw errors.
+Otherwise, the notation works just as you know it from other languages.
 
 In the end, our final code looks like this:
 
