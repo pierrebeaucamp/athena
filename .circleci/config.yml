@@ -10,7 +10,7 @@ jobs:
           command: .circleci/setup.sh
       - restore_cache:
           keys:
-            - nix-{{ checksum "requirements.nix" }}-1
+            - nix-{{ checksum "requirements.nix" }}-2
       - run:
           name: Build
           command: nix-build
@@ -18,7 +18,7 @@ jobs:
           name: Deploy
           command: nix-shell -p nodejs --run ".circleci/deploy.sh"
       - save_cache:
-          key: nix-{{ checksum "requirements.nix" }}-1
+          key: nix-{{ checksum "requirements.nix" }}-3
           when: always
           paths:
             - /nix
