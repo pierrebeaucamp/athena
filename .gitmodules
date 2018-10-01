@@ -1,0 +1,3 @@
+[submodule "neocities-cli"]
+	path = neocities-cli
+	url = https://github.com/pierrebeaucamp/neocities-ruby.git
