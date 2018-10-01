@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-set -eo pipefail
+#!/usr/bin/env sh
 
 apk add --update ca-certificates
 nix-channel --remove nixpkgs
