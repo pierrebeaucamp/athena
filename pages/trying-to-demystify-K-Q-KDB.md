@@ -35,7 +35,7 @@ love to see a larger adoption of it in the future.
 
 Let's take the one-line Sudoku example I mentioned above:
 
-```k
+```
 *(,x)(,/{@[x;y;:;]'&~in[!10]x*|/p[;y]=p,:3/:_(p:9\:!81)%3}')/&~x
 ```
 [^kx-copyright]
@@ -115,7 +115,7 @@ LISP:
 
 K:
 
-```k
+```
 :[fact_iter; {[product; counter; max_count]
   :[>[counter; max_count];
     product;
@@ -141,7 +141,7 @@ To me, discovering the M-expression syntax of K and Q was some much-needed
 familiarity. However, it is uncommon to find this notation in the wild. In
 reality, a K implementation of `fact_iter` would most likely look like this:
 
-```k
+```
 f:{:[y>z;x;_f[y*x;y+1;z]]}
 ```
 
@@ -161,16 +161,16 @@ characters.
 Again, I can understand if this seems like a minor issue for this isolated
 example, but let's take the sudoku example again:
 
-```k
+```
 *(,x)(,/{@[x;y;:;]'&~in[!10]x*|/p[;y]=p,:3/:_(p:9\:!81)%3}')/&~x
 ```
 
 Even though I'd say that I "get" K at this point, I can't explain this line of
 code. Let's try to rewrite it in Q and break it up into multiple sections:
 
-```k
+```
 / Some friendlier names for readability
-toInt: "I" $
+toInt: "I" \$
 amend: @
 join: {x,y}
 
@@ -251,7 +251,7 @@ my Surfacebook laptop.
 
 Now, let's compare this to the following K implementation:
 
-```k
+```
 *| 5000 {x,+/-2#x}/0 1
 ```
 
@@ -265,7 +265,7 @@ arbitrary test, it is about what I'd expect from an interpreted language.
 Let's compare this to yet another implementation, this time in Racket:
 [^time_racket]
 
-```rkt
+```scheme
 #lang racket
 
 (define (repeat n f a)
@@ -288,7 +288,7 @@ Speaking of "simple", this is not really how one would implement a Fibonacci
 function in racket / LISP. A more straightforward function would look like
 this:
 
-```rkt
+```scheme
 #lang racket
 
 (define (fib n)
@@ -304,7 +304,7 @@ algorithm has a runtime complexity of `O(n²)` whereas the previous code was
 `O(n)`. What is interesting however is the runtime of this `O(n²)` algorithm in
 K:
 
-```k
+```
 {:[x<2;1;_f[x-1]+_f[x-2]]}[14]
 ```
 
