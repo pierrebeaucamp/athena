@@ -5,12 +5,14 @@ jobs:
       - image: nixos/nix:2.1.1
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - run:
           name: Setup
           command: .circleci/setup.sh
       - restore_cache:
           keys:
-            - nix-{{ checksum "requirements.nix" }}-3
+            - nix-{{ checksum "requirements.nix" }}-4
       - run:
           name: Build
           command: nix-build
@@ -18,7 +20,7 @@ jobs:
           name: Deploy
           command: nix-shell --run ".circleci/deploy.sh"
       - save_cache:
-          key: nix-{{ checksum "requirements.nix" }}-3
-          when: always
+          key: nix-{{ checksum "requirements.nix" }}-4
+          when: on_success
           paths:
             - /nix
