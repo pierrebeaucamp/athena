@@ -3,4 +3,4 @@
 mkdir -p $HOME/.config/neocities
 echo $NEOCITIES_TOKEN >> $HOME/.config/neocities/config
 
-neocities push result
+neocities push -e nix-support result
