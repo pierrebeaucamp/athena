@@ -10,7 +10,7 @@ So far, I had no trouble wrapping my head around new paradigms introduced by
 Haskell, LISP or Prolog, yet the APL family of languages seemed more of an
 impractical joke to me.
 
-Yet I found myself coming back to APL over and over, mainly thanks to examples
+I found myself coming back to APL over and over, primarily thanks to examples
 like the [vintage APL demonstration from
 1975](https://www.youtube.com/watch?v=_DTpQ4Kk2wA), the [one line sudoku
 solver](https://github.com/KxSystems/kdb/blob/master/sudoku.k) or the
@@ -18,10 +18,10 @@ solver](https://github.com/KxSystems/kdb/blob/master/sudoku.k) or the
 KDB+](http://tech.marksblogg.com/billion-nyc-taxi-kdb.html), an in-memory
 database implemented in K, a modern descendant of APL.
 
-But I could just not bring myself to understand, or even like APL. And anyone
+But I could just not bring myself to understand or even like APL. Anyone
 researching this language will quickly find a sea of developers denouncing its
 terse syntax. However, Kx Systems, the company developing K, Q and KDB+ recently
-hosted a workshop about their technology and proofed to be a perfect
+hosted a workshop about their technology which proved to be a perfect
 introduction into the world of APL.
 
 What follows is my personal interpretation of Q, a commercial array language by
@@ -70,7 +70,7 @@ characters found in the ASCII character set.
 
 Yet this leads to the next problem: Character overloading. To my knowledge, most
 operands in APL had a single meaning. Contrast this K where a single symbol can
-have up to four different meanings, dependent on how many arguments we apply it
+have up to four different meanings, depending on how many arguments we apply it
 to. To a lesser extent, take the `*` symbol from the Sudoku example above.
 Applied to two arguments, it is simply "multiplication", but applied to a single
 one, it becomes "first".
@@ -82,9 +82,9 @@ proper English names, instead of single characters.
 
 ## J/K & M-expressions
 
-By now, I talked about APL itself, but also J, K, and Q. It is easy to think of
-J and K as simple iterations of APL, but in reality, both of these adoptions are
-a combination of APL and a second programming language.
+So far, I talked about APL itself, but also J, K, and Q. It is easy to
+think of J and K as simple iterations of APL, but in reality, both of these
+adoptions are a combination of APL and a second programming language.
 
 For J, this other part is FP, a language proposed by John Backus in his Turing
 award lecture (and one of my favourite papers) "[Can Programming Be Liberated
@@ -92,15 +92,15 @@ from the von Neumann
 Style?](http://www.csc.villanova.edu/%7Ebeck/csc8310/BackusFP.pdf)". Although FP
 is very notable, I don't have a lot of experience with it.
 
-However, K combines APL with LISP.
+K, however, combines APL with LISP.
 
 Learning this for the first time really surprised me. I adore LISP languages for
-their cleanliness and K looks... still like a random assortment of ASCII
-characters. But the similarities are glaring. There is a whole [comparison of
-LISP vs K](http://kparc.com/lisp.txt) by Arthur Whitney, the author of
-K himself. But the gist of it is: The main datatypes in K are Atoms and Lists,
-and the code is written in M-expressions, as opposed to S-Expressions. So for
-example, the following two samples are equivalent:
+their cleanliness while K looks... still like a random assortment of ASCII
+characters to me. Still, the similarities are glaring. There is a whole
+[comparison of LISP vs K](http://kparc.com/lisp.txt) by Arthur Whitney, the
+author of K himself. But the gist of it is: The main datatypes in K are Atoms
+and Lists, and the code is written in M-expressions, as opposed to
+S-Expressions. So for example, the following two samples are equivalent:
 
 LISP:
 
@@ -124,14 +124,14 @@ K:
        max_count]]}]
 ```
 
-Notice the few differences in K
+Notice the few differences in K:
 
-1. The Lambda function is implicitly bound to curly brackets
+1. The Lambda function is implicitly bound to curly brackets.
 
-2. Lists are separated by a semicolon, not a whitespace
+2. Lists are separated by a semicolon, not a whitespace.
 
 3. The colon sign is an overloaded character. In the first line, it denotes
-   "assign to", but in the second line, it represents the "if" function
+   "assign to", but in the second line, it represents the "if" function.
 
 4. Instead of calling `fact_iter` recursively, we call `_f`, which is a constant
    referring to the current function. We need to call `_f` because `fact_iter`
@@ -247,7 +247,7 @@ int main() {
 ```
 
 This calculates the 100.000.000th Fibonacci number and takes 5-6 milliseconds on
-my Surfacebook laptop.
+my Surface Book laptop.
 
 Now, let's compare this to the following K implementation:
 
@@ -330,11 +330,11 @@ that. Querying for data in M-expressions, with all the Q and K functionality at
 hand is amazing. However, it is "just" an internal data-structure. There is no
 built-in persistence, sharding, fail-over or even concurrency methods. It is
 fast because it's simple and because it's realized in a simple and relatively
-fast language, to begin with. However, it is certainly not magic.
+fast language. However, it is certainly not magic.
 
 Let's look at the benchmark published by another author:
 [http://tech.marksblogg.com/benchmarks.html](http://tech.marksblogg.com/benchmarks.html)
-With enough processing power, it is not hard to beat KDB+. However what truly
+With enough processing power, it is not hard to beat KDB+. What truly
 stands out is how little KDB+ requires and how "easy" it is to use. And to me,
 this is far more respectable than having the fastest benchmarks out there.
 
@@ -350,9 +350,9 @@ I definitely still have the same amount of respect for K/Q, albeit for different
 reasons. I expected a terse, hard to learn golfing language which was faster
 than pretty much everything out there because it probably relies on a ton of
 hacks. What I found was a foreign, but yet familiar language with above average
-performance in its class. And the sobering realization that there is no magic
-under the hood, but just a simple and small language with the right influences
-is actually increasing the likelihood of me using it in the future.
+performance in its class. And despite the sobering realization that there is no
+magic under the hood, a simple and small language with the right influences is
+actually increasing the likelihood of me using it in the future.
 
 So in the end, don't be afraid of K & Q. It's amazing that this piece of
 technology prevailed all these years while the largest part of software
