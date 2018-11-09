@@ -27,8 +27,7 @@ athena.config.from_object(__name__)
 pages = FlatPages(athena)
 freezer = Freezer(athena)
 athena.jinja_env.comment_start_string = "{##}"
-FlatPagesPandoc("markdown+raw_tex+yaml_metadata_block",
-  athena, pre_render=True)
+FlatPagesPandoc("markdown+raw_tex+yaml_metadata_block", athena, pre_render=True)
 
 def make_external(url):
   return urljoin(request.url_root, url)
@@ -57,7 +56,8 @@ def recent_feed():
 @athena.route("/")
 def index():
   posts = filter(lambda page: "ispage" not in page.meta, pages)
-  hpages = filter(lambda page: "ispage" in page.meta, pages)
+  hpages = filter(lambda page: "unlisted" not in page.meta,
+             filter(lambda page: "ispage" in page.meta, pages))
   return render_template("index.html", pages=posts,
                           hpages=hpages, config=config.config)
 
@@ -68,14 +68,16 @@ def hardpagelink(path):
         if page.path == path:
             if page.meta["ispage"]:
                 hpage = page
-    hpages = filter(lambda page: "ispage" in page.meta, pages)
+    hpages = filter(lambda page: "unlisted" not in page.meta,
+               filter(lambda page: "ispage" in page.meta, pages))
     return render_template("hard.html", page=hpage,
                             hpages=hpages, config=config.config)
 
 @athena.route("/posts/<path:path>/")
 def page(path):
   page = pages.get_or_404(path)
-  hpages = filter(lambda page: "ispage" in page.meta, pages)
+  hpages = filter(lambda page: "unlisted" not in page.meta,
+             filter(lambda page: "ispage" in page.meta, pages))
   return render_template("page.html", page=page,
                           hpages=hpages, config=config.config)
 
