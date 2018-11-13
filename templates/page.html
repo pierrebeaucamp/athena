@@ -46,7 +46,7 @@
   {% block content %}
     <h1>{{ page.title }}</h1>
     <p id="blog-p"><span id="blogdesc" class="marginnote">
-    {{ config.sidebardesc }}<br><br>
+    <b>{{ config.sidebardesc }}</b><br>
     <a href="{{ url_for("index") }}">home</a> ·
     {% for page in hpages %}
       <a href="{{ url_for("hardpagelink", path=page.path)}}">
