@@ -10,6 +10,7 @@ in
 
     buildInputs = [
       neocities
+      pkgs.graphviz
       pkgs.pandoc
       pkgs.haskellPackages.pandoc-citeproc
       pkgs.haskellPackages.pandoc-crossref
@@ -17,6 +18,7 @@ in
     ] ++ builtins.attrValues python.packages;
 
     buildPhase = ''
+      find . -name '*.dot' -exec bash -c 'dot -Tsvg "$0" -o "''${0/dot/svg}"' '{}' \;
       ${python.interpreter}/bin/python athena.py build
     '';
 

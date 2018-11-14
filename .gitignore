@@ -4,3 +4,4 @@ result
 pages/all.bib
 .DS_Store
 node_modules
+*.svg

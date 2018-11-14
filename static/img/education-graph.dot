@@ -1,0 +1,5 @@
+digraph Dependencies {
+  graph [bgcolor="#fffff8"]
+  "Literacy" -> "Math" -> "Accounting"
+}
+
